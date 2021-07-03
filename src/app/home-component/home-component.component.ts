@@ -58,7 +58,6 @@ export class HomeComponentComponent implements OnInit {
     this.editItem = false;
     this.global.editProduct(this.id).subscribe(res => {
       console.log(res);
-      this.ngOnInit();
     });
     // this.products.forEach(e => {
     //   if (e.ProductID == this.toBeEdited) {

@@ -14,9 +14,7 @@ export class GlobalServiceService {
   ];
 
   getProducts() {
-    return this._http.get(
-      'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data'
-    );
+    return this._http.get('https://mockend.com/srsoumya96/angular-ivy-thinkbridge/data');
     // return this.data;
   }
 
@@ -27,7 +25,8 @@ export class GlobalServiceService {
       {
         ProductID: '111',
         ProductName: 'AAA',
-        ProductDesc: 'ZZZZZ'
+        ProductDesc: 'ZZZZZ',
+        id: 2
       },
       {
         headers: new HttpHeaders({
@@ -39,7 +38,7 @@ export class GlobalServiceService {
 
   editProduct(id) {
     return this._http.patch(
-      'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data/1',
+      'https://my-json-server.typicode.com/srsoumya96/testJSONDemo/data/1',
       {
         ProductName: 'BBB'
       }

@@ -15,7 +15,9 @@ export class HomeComponentComponent implements OnInit {
   pDesc;
   addPopup = false;
   ngOnInit() {
-    this.products = this.global.getProducts();
+    this.global.getProducts().subscribe(d => {
+      console.log(d);
+    });
   }
 
   addEntry() {

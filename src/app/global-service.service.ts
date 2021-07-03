@@ -1,8 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GlobalServiceService {
-  constructor() {}
+  constructor(private _http: HttpClient) {}
 
   data = [
     {
@@ -13,10 +14,19 @@ export class GlobalServiceService {
   ];
 
   getProducts() {
-    return this.data;
+    return this._http
+      .get(
+        'https://my-json-server.typicode.com/srsoumya96/testJSONDemo/employee',
+        {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+          })
+        }
+      );
+    // return this.data;
   }
 
-  addProduct(prod){
+  addProduct(prod) {
     this.data.push(prod);
   }
 }

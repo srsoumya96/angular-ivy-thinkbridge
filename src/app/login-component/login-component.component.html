@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="items">
+  <label for="email">Email ID : </label>
+  <input #empid name="text" type="email" placeholder="Employee ID"/>
+  </div>
+
+  <div class="items">
+  <label for="pwd">Password</label>
+  <input #pwd name="pwd" type="password" placeholder="Password"/>
+  </div>
+
+  <input type="submit" value="Login" (click)="loginAdmin(empid.value, pwd.value)"/>
+</div>

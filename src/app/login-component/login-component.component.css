@@ -1,0 +1,15 @@
+.card {
+  width: 400px;
+  height: 400px;
+  display: block;
+}
+
+.items {
+  display: block;
+  margin: 5px;
+  padding: 10px;
+}
+
+label {
+  padding: 0 20px 0 0;
+}

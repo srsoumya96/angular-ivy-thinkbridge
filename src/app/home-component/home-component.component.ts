@@ -15,7 +15,8 @@ export class HomeComponentComponent implements OnInit {
   pDesc;
   addPopup = false;
   ngOnInit() {
-    this.global.getProducts().subscribe(d => {
+    this.global.getProducts().subscribe((d: any) => {
+      this.products = d;
       console.log(d);
     });
   }
@@ -30,8 +31,9 @@ export class HomeComponentComponent implements OnInit {
       ProductName: this.pName,
       ProductDesc: this.pDesc
     };
-    this.global.addProduct(prod);
-    this.ngOnInit();
+    this.global.addProduct(prod).subscribe(res => {
+      console.log(res);
+    });
     this.addPopup = false;
     console.log(this.products);
   }

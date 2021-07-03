@@ -15,12 +15,7 @@ export class GlobalServiceService {
 
   getProducts() {
     return this._http.get(
-      'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data',
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-      }
+      'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data'
     );
     // return this.data;
   }
@@ -30,10 +25,23 @@ export class GlobalServiceService {
     return this._http.post(
       'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data',
       {
-        id: 2,
         ProductID: '111',
         ProductName: 'AAA',
         ProductDesc: 'ZZZZZ'
+      },
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      }
+    );
+  }
+
+  editProduct(id) {
+    return this._http.patch(
+      'https://my-json-server.typicode.com/srsoumya96/angular-ivy-thinkbridge/data/1',
+      {
+        ProductName: 'BBB'
       }
     );
   }

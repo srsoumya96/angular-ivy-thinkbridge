@@ -7,6 +7,7 @@ import { GlobalServiceService } from '../global-service.service';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
+  id: any;
   constructor(private global: GlobalServiceService) {}
 
   products = [];
@@ -34,6 +35,7 @@ export class HomeComponentComponent implements OnInit {
     this.global.addProduct(prod).subscribe(res => {
       console.log(res);
     });
+    this.ngOnInit();
     this.addPopup = false;
     console.log(this.products);
   }
@@ -45,6 +47,7 @@ export class HomeComponentComponent implements OnInit {
       if (e.ProductID == id) {
         this.pName = e.ProductName;
         this.pDesc = e.ProductDesc;
+        this.id = e.id;
       }
     });
     this.editItem = true;
@@ -53,13 +56,17 @@ export class HomeComponentComponent implements OnInit {
 
   saveEntry() {
     this.editItem = false;
-    this.products.forEach(e => {
-      if (e.ProductID == this.toBeEdited) {
-        e.ProductName = this.pName;
-        e.ProductDesc = this.pDesc;
-        return;
-      }
+    this.global.editProduct(this.id).subscribe(res => {
+      console.log(res);
+      this.ngOnInit();
     });
+    // this.products.forEach(e => {
+    //   if (e.ProductID == this.toBeEdited) {
+    //     e.ProductName = this.pName;
+    //     e.ProductDesc = this.pDesc;
+    //     return;
+    //   }
+    // });
   }
 
   deleteEntry(id) {
